@@ -33,3 +33,29 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "vms_metadata" {
+ type = object({
+   serial-port-enable = number
+   ssh-keys           = string
+ })
+ default = {
+     serial-port-enable = 1
+     ssh-keys           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHYMl6i1/RbSwM3vsYIkgYPo+wrPcxc2aZ1AODdCqTPM root@dio-mainpc"
+   }
+}
+
+variable "vm_web_nat" {
+  type        = bool
+  default     = true
+}
+
+variable "vm_web_platform_id" {
+  type        = string
+  default     = "standard-v3"
+}
+
+variable "vm_web_image_family" {
+  type        = string
+  default     = "ubuntu-2404-lts"
+}
