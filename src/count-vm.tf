@@ -1,4 +1,5 @@
 resource "yandex_compute_instance" "web" {
+  depends_on = [yandex_compute_instance.db]
   count = 2
   name        = "web-${count.index+1}"
   platform_id = var.vms_resources["web"].platform
@@ -21,9 +22,8 @@ resource "yandex_compute_instance" "web" {
     security_group_ids = [yandex_vpc_security_group.example.id]
     nat       = var.vm_web_nat
   }
-
   metadata = {
-    serial-port-enable = var.vms_metadata.serial-port-enable
-    ssh-keys           = "ubuntu:${var.vms_metadata.ssh-keys}"
+      serial-port-enable = local.serial-port-enable
+      ssh-keys           = local.ssh_key
   }
 }

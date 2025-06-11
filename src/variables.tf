@@ -1,9 +1,5 @@
 ###cloud vars
 
-#variable "token" {
-#  type        = string
-#  description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
-#}
 
 variable "cloud_id" {
   type        = string
@@ -32,17 +28,6 @@ variable "vpc_name" {
   type        = string
   default     = "develop"
   description = "VPC network&subnet name"
-}
-
-variable "vms_metadata" {
- type = object({
-   serial-port-enable = number
-   ssh-keys           = string
- })
- default = {
-     serial-port-enable = 1
-     ssh-keys           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHYMl6i1/RbSwM3vsYIkgYPo+wrPcxc2aZ1AODdCqTPM root@dio-mainpc"
-   }
 }
 
 variable "vm_web_nat" {

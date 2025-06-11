@@ -20,3 +20,11 @@ variable "vms_resources" {
         }
     }
 }
+
+variable "vms_db" {
+  type = list(
+     object({ vm_name = string, cores = number, memory = number, core_fraction = number, platform = string, preemptible = bool }))
+  default = ([ 
+    {vm_name = "main", cores = 2, memory = 2, core_fraction = 20, platform = "standard-v3", preemptible = true}, 
+    {vm_name = "replica", cores = 4, memory = 2, core_fraction = 20, platform = "standard-v3", preemptible = true}])
+}
