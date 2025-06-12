@@ -1,6 +1,4 @@
 ###cloud vars
-
-
 variable "cloud_id" {
   type        = string
   default     = "b1g2uh898q9ekgq43tfq"
