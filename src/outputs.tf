@@ -15,5 +15,13 @@ output "VM_stats" {
             fqdn = vm.fqdn
       }
     ]
+    ,
+    [
+        {
+            name = yandex_compute_instance.storage.name
+            id   = yandex_compute_instance.storage.id
+            fqdn = yandex_compute_instance.storage.fqdn
+        }
+    ]
   ])
 }
