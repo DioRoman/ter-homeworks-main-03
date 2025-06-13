@@ -24,17 +24,3 @@
           - jq
         state: latest
         update_cache: yes
-
-    # cat /tmp/own.pass  | jq
-    - name: save own secret
-      copy:
-        dest: /tmp/own.pass
-        content: "{{ secrets[inventory_hostname]  }}"
-      when: secrets[inventory_hostname] is defined
-
-    # cat /tmp/all.pass  | jq
-    - name: save all secrets
-      copy:
-        dest: /tmp/all.pass
-        content: "{{ secrets }}"
-      when: secrets is defined
