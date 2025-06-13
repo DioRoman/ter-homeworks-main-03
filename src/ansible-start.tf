@@ -5,6 +5,5 @@ depends_on = [yandex_compute_instance.web]
         command = "ansible-playbook -i hosts.yml test.yml"
         interpreter = ["bash"]
         environment = { ANSIBLE_HOST_KEY_CHECKING = "False" }
-
     }
 }
