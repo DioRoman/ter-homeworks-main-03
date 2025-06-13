@@ -7,5 +7,5 @@ resource "local_file" "hosts_templatefile" {
       storage       = [yandex_compute_instance.storage]
   })
 
-  filename = "${abspath(path.module)}/hosts.ini"
+  filename = "${abspath(path.module)}/hosts.yml"
 }
